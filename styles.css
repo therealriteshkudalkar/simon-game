@@ -3,11 +3,39 @@ body {
   background-color: #011F3F;
 }
 
+.footer {
+  margin: 2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  font-size: 0.5rem;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #FEF2BF;
+}
+
 #level-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
+  font-size: 2.25rem;
+  margin:  3%;
   color: #FEF2BF;
+}
+
+.instructionsContainer {
+  width: 55%;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: #FEF2BF;
+  text-align: center;
+  display: inline-block;
+}
+
+.instruction {
+  line-height: 2rem;
+  margin: 4%;
+  color: #FEF2BF;
+  text-align: left;
 }
 
 .container {
@@ -29,6 +57,22 @@ body {
 .game-over {
   background-color: red;
   opacity: 0.8;
+}
+
+.redText {
+  color: red;
+}
+
+.greenText {
+  color: green;
+}
+
+.blueText {
+  color: blue;
+}
+
+.yellowText {
+  color: yellow;
 }
 
 .red {
