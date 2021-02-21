@@ -5,14 +5,6 @@ var level = 0;
 var gameStarted = false;
 var gamePatternIndex = 0;
 
-function startOver() {
-  gamePattern = []; //console.log(failure);
-  userClickedPattern = [];
-  gamePatternIndex = 0;
-  level = 0;
-  gameStarted = false;
-}
-
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
@@ -23,6 +15,26 @@ function animatePress(currentColor) {
   setTimeout(function() {
     $("#" + currentColor).removeClass("pressed");
   }, 100);
+}
+
+function startGame() {
+  setTimeout(function() {
+    $(".container").show();
+    $("#start").hide();
+    startOver();
+    if (!gameStarted) {
+      gameStarted = true;
+      nextSequence();
+    }
+  }, 500);
+}
+
+function startOver() {
+  gamePattern = []; //console.log(failure);
+  userClickedPattern = [];
+  gamePatternIndex = 0;
+  level = 0;
+  gameStarted = false;
 }
 
 function nextSequence() {
@@ -60,22 +72,20 @@ $(".btn").click(function(event) {
       }, 1000);
     }
   } else {
-    startOver();
-    
-    $("h1").text("Game Over, Press Any Key to Restart");
+    $("h1").html("Game Over! <br><br>Press any key to restart or click on start. <br><br>Your score: " + (gamePattern.length - 1));
     playSound("wrong");
 
     $("body").addClass("game-over");
     setTimeout(function() {
       $("body").removeClass("game-over");
     }, 200);
+
+    $("#start").show();
+    $(".container").hide();
   }
 });
 
 //Start Game
 $(document).keydown(function(event) {
-  if (!gameStarted) {
-    gameStarted = true;
-    nextSequence();
-  }
+  startGame();
 });
